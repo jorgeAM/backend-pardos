@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('/reservations', function () {
     return view('reservations');
 });
+
+Route::get('/success', function () {
+    return view('success');
+});

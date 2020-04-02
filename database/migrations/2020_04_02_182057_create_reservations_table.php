@@ -20,10 +20,10 @@ class CreateReservationsTable extends Migration
             $table->string('email');
             $table->string('district');
             $table->string('phone');
-            $table->dateTime('time_reservation', 0);
+            $table->dateTime('time_reservation', 0)->nullable();
             $table->integer('numOfPeople'); 
-            $table->enum('combo', ['combo 1', 'combo 2', 'combo 3']);	
-            $table->text('comments');
+            $table->enum('combo', ['combo-1', 'combo-2', 'combo-3']);	
+            $table->text('comments')->nullable();
             $table->timestamps();
         });
     }
