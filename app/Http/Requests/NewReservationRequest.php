@@ -34,7 +34,7 @@ class NewReservationRequest extends FormRequest
             'time_reservation' => 'nullable',
             'numOfPeople' => 'required|integer',
             'combo' => 'required|in:combo-1,combo-2,combo-3',
-            'comments' => 'required'
+            'comments' => 'nullable'
         ];
     }
 
