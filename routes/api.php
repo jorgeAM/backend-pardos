@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/reservations', 'ListReservations');
-
 Route::post('/reservations', 'CreateReservation');
+Route::post('/login', 'Login');
