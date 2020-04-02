@@ -21,7 +21,7 @@ class CreateReservationsTable extends Migration
             $table->string('district');
             $table->string('phone');
             $table->dateTime('time_reservation', 0);
-            $table->string('numOfPeople'); 
+            $table->integer('numOfPeople'); 
             $table->enum('combo', ['combo 1', 'combo 2', 'combo 3']);	
             $table->text('comments');
             $table->timestamps();
