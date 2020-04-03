@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Requests\LoginRequest;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class Login extends Controller
@@ -31,6 +31,17 @@ class Login extends Controller
             ], 404);
         }
 
-        return  $user;
+        $credentials = request(['email', 'password']);
+        
+        if (! $token = auth()->attempt($credentials)) {
+            return response()->json(['message' => 'Ups, algo salió mal'], 400);
+        }
+
+        return response()->json([
+            'token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'user' => $user
+        ]);
     }
 }
