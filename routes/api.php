@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('/reservations', 'ListReservations');
+Route::middleware('auth:api')->get('/reservations', 'ListReservations');
 Route::post('/reservations', 'CreateReservation');
-Route::post('/login', 'Login');
+Route::post('login', [ 'as' => 'login', 'uses' => 'Login']);
